@@ -3,9 +3,9 @@ package org.example;
 import java.util.Random;
 
 public class GeneratorID {
-    private Random random = new Random();
+    private IRandom random = new RandomV2();
 
-    public GeneratorID(Random random) {
+    public GeneratorID(IRandom random) {
         this.random = random;
     }
 
