@@ -37,4 +37,11 @@ class MyRangeTest {
         assertEquals(2, result);
     }
 
+    @Test
+    public void case5(){
+        MyRange myRange = new MyRange("[1,5]");
+        String result = myRange.getResult();
+        assertEquals("12345", result);
+    }
+
 }
