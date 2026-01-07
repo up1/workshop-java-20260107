@@ -10,4 +10,11 @@ public class MyRange {
     public boolean isStartWithInclude() {
         return input.startsWith("[");
     }
+
+    public int getStart() {
+        if(isStartWithInclude()) {
+            return input.charAt(1) - 48;
+        }
+        return input.charAt(1) - 48 + 1;
+    }
 }

@@ -23,4 +23,18 @@ class MyRangeTest {
         assertFalse(result);
     }
 
+    @Test
+    public void case3(){
+        MyRange myRange = new MyRange("[1,5]");
+        int result = myRange.getStart();
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void case4(){
+        MyRange myRange = new MyRange("(1,5]");
+        int result = myRange.getStart();
+        assertEquals(2, result);
+    }
+
 }
