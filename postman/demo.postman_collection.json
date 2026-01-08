@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "2ea45290-3c0b-45fa-afa8-e75cf95b5250",
+		"_postman_id": "3b6c06d2-984c-40b5-bd28-a3ccdebd727b",
 		"name": "demo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "1453931",
-		"_collection_link": "https://red-firefly-245852.postman.co/workspace/workshop-springboot-rest-api~ee0c44f7-bec4-486c-99ef-e314827da93d/collection/1453931-2ea45290-3c0b-45fa-afa8-e75cf95b5250?action=share&source=collection_link&creator=1453931"
+		"_collection_link": "https://red-firefly-245852.postman.co/workspace/ee0c44f7-bec4-486c-99ef-e314827da93d/collection/1453931-3b6c06d2-984c-40b5-bd28-a3ccdebd727b?action=share&source=collection_link&creator=1453931"
 	},
 	"item": [
 		{
@@ -135,6 +135,69 @@
 				"url": "https://jsonplaceholder.typicode.com/users/1"
 			},
 			"response": []
+		},
+		{
+			"name": "https://dummyjson.com/auth/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"",
+							"    pm.collectionVariables.set(\"XYZ_TOKEN\", jsonData.accessToken);",
+							"",
+							"",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"emilys\",\n    \"password\": \"emilyspass\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://dummyjson.com/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "https://dummyjson.com/auth/me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{XYZ_TOKEN}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://dummyjson.com/auth/me"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "XYZ_TOKEN",
+			"value": ""
 		}
 	]
 }
