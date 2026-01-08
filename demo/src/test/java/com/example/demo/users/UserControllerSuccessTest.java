@@ -10,7 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class UserControllerTest {
+class UserControllerSuccessTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
