@@ -1,5 +1,6 @@
 package com.example.demo.users;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +16,8 @@ class UserControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void getUserById() {
+    @DisplayName("Success with get user by id=1")
+    void case01() {
         UserResponse result =restTemplate.getForObject("/user/1", UserResponse.class);
         assertEquals(1, result.id());
         assertEquals("Somkiat", result.name());
