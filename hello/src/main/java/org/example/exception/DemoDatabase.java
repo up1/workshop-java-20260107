@@ -13,7 +13,6 @@ public class DemoDatabase {
                 PreparedStatement prepStmt = conn.prepareStatement("select * from some_table");
                 ResultSet rs = prepStmt.executeQuery();
         ) {
-
             while (rs.next()) {
 
             }
