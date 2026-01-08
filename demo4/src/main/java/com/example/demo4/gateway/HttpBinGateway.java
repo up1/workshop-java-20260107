@@ -15,7 +15,6 @@ public class HttpBinGateway {
         this.restClient = restClient;
     }
 
-
     public Optional<DataResponse> callWithDelay(int delay) {
         DataResponse result = restClient
                 .get()
