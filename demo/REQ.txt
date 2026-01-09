@@ -1,0 +1,57 @@
+REST API Get product by id
+
+```sh
+
+```
+
+GET /product/{id}
+
+success with code 200
+GET product/1
+{
+"id": 1,
+"product_name": "product name",
+"price": 100.50
+}
+
+Project structure
+
++ src
+   + main
+      + java
+         + com.example.demo.product
+
+List of file
+
++ ProductController
+   + process(id)
+
++ ProductService
+   + process(id)
+
++ ProductRepository
+   + process(id)
+
+Business process
+
+```mermaid
+sequenceDiagram
+    actor Client
+    participant API
+    participant Database as MySQL Database
+
+    Client->>API: Get product detail by id
+    API->>Database: Query product WHERE id = ?
+    
+    alt Product Found
+        Database-->>API: Return product record
+        API-->>Client: 200 OK - Product details
+    else Product Not Found
+        Database-->>API: No rows returned
+        API-->>Client: 404 Not Found
+    else Database Error
+        Database-->>API: Error (connection, syntax, etc)
+        API-->>Client: 500 Internal Server Error
+    end
+```
+
