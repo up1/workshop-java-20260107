@@ -13,12 +13,13 @@ public class UserService {
 
     public UserResponse get(int userId) {
 
-        Optional<MyUser> result = userRepository.findById(userId);
+        Optional<MyUser> result = userRepository.getById(userId);
         if(result.isEmpty()){
             // Not found
             throw new UserNotFoundException("Not found");
         }
         // Found
+
 
         if(userId == 2) {
             throw new UserNotFoundException("User id=" +  userId + " not found in system");
