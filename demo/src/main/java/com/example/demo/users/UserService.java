@@ -5,12 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    Logger logger = null;
 
     @Transactional
     public UserResponse get(int userId) {
